@@ -76,6 +76,17 @@ class FaceDetector:
             cv2.destroyAllWindows()
 
 
+    def processSingleImage(self, imagen_path):
+        '''
+            Identificar rostros en imágenes.
+        '''
+        imagen = cv2.imread(imagen_path)
+        faces = self.predict(imagen)
+        
+        self.showDetectedFaces(faces, imagen)
+        return imagen
+
+
     def videoCapturing(self):
         '''
             Identificación de rostros en tiempo real.
